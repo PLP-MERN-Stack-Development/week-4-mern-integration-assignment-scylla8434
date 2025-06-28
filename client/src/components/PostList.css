@@ -1,0 +1,197 @@
+/* Modern, premium blog UI/UX improvements */
+body {
+  background: linear-gradient(120deg, #f0f4ff 0%, #e6e9f0 100%);
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.post-list-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(79,140,255,0.08), 0 1.5px 6px rgba(35,83,144,0.04);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  margin: 2.5rem auto;
+  max-width: 900px;
+  transition: box-shadow 0.2s;
+}
+
+/* Card layout for posts */
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.post-list-item {
+  background: #f8fbff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(79,140,255,0.07);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border: 1px solid #eaeaea;
+  transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+  position: relative;
+  min-height: 180px;
+}
+.post-list-item:hover {
+  background: #e6f0ff;
+  box-shadow: 0 6px 24px rgba(79,140,255,0.13);
+  transform: translateY(-2px) scale(1.012);
+}
+.post-list-item a {
+  font-size: 1.25rem;
+  color: #235390;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: color 0.2s;
+}
+.post-list-item a:hover {
+  color: #4f8cff;
+}
+
+.post-meta {
+  font-size: 1rem;
+  color: #4f8cff;
+  margin-left: 0;
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+.category-badge {
+  background: #4f8cff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-right: 0.7rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 4px rgba(79,140,255,0.08);
+  display: inline-block;
+}
+
+.post-view-container h2 {
+  font-size: 2.1rem;
+  color: #235390;
+  margin-bottom: 0.5rem;
+}
+
+.post-content {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.comments-list {
+  background: #f7faff;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.comment-item {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.05rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+.comment-item:last-child {
+  border-bottom: none;
+}
+.comment-user {
+  font-weight: bold;
+  color: #235390;
+  margin-right: 0.5rem;
+}
+.comment-date {
+  color: #888;
+  font-size: 0.92rem;
+  margin-left: 0.5rem;
+}
+
+.comment-form textarea {
+  padding: 0.9rem 1.1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  font-size: 1.05rem;
+  outline: none;
+  min-height: 70px;
+  resize: vertical;
+  margin-bottom: 0.7rem;
+  background: #f7faff;
+}
+.comment-form button {
+  background: linear-gradient(90deg, #4f8cff 0%, #235390 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.comment-form button:hover {
+  background: #235390;
+}
+
+.success {
+  color: #388e3c;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.error {
+  color: #d32f2f;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-list-container {
+    background: #1a2233;
+    color: #e6e9f0;
+    box-shadow: 0 2px 16px rgba(35,83,144,0.18);
+  }
+  .post-list-item {
+    background: #232b3b;
+    border: 1px solid #2c3950;
+    color: #e6e9f0;
+  }
+  .post-list-item a {
+    color: #90b4ff;
+  }
+  .post-list-item a:hover {
+    color: #fff;
+  }
+  .category-badge {
+    background: #235390;
+    color: #90b4ff;
+  }
+}
+@media (max-width: 700px) {
+  .post-list {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .post-list-container {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .post-list-container, .post-view-container, .post-form, .auth-form {
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+    max-width: 98vw;
+  }
+  .navbar-container {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}

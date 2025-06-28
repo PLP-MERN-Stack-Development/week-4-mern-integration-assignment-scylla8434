@@ -57,8 +57,11 @@ export const postService = {
   },
 
   // Create a new post
-  createPost: async (postData) => {
-    const response = await api.post('/posts', postData);
+  createPost: async (postData, isFormData = false) => {
+    const config = isFormData
+      ? { headers: { 'Content-Type': 'multipart/form-data' } }
+      : {};
+    const response = await api.post('/posts', postData, config);
     return response.data;
   },
 
@@ -133,4 +136,4 @@ export const authService = {
   },
 };
 
-export default api; 
+export default api;

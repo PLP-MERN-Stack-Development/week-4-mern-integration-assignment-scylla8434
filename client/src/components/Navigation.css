@@ -1,0 +1,118 @@
+.navbar {
+  background: linear-gradient(90deg, #4f8cff 0%, #235390 100%);
+  color: #fff;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.navbar-links li {
+  transition: border-bottom 0.2s;
+}
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
+}
+.navbar-links li.active a,
+.navbar-links li a:hover {
+  border-bottom: 2px solid #fff;
+}
+.logout-btn {
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background 0.2s;
+}
+.logout-btn:hover {
+  background: #b71c1c;
+}
+/* User avatar in navbar */
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  color: #235390;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  box-shadow: 0 1px 4px rgba(79,140,255,0.10);
+}
+/* Dark mode for navbar */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: linear-gradient(90deg, #232b3b 0%, #235390 100%);
+    color: #e6e9f0;
+  }
+  .navbar-links li a {
+    color: #90b4ff;
+  }
+  .navbar-links li.active a,
+  .navbar-links li a:hover {
+    border-bottom: 2px solid #90b4ff;
+  }
+  .user-avatar {
+    background: #232b3b;
+    color: #90b4ff;
+  }
+  .darkmode-toggle {
+    color: #90b4ff;
+  }
+}
+.darkmode-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 0.7rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.darkmode-toggle:active {
+  transform: scale(1.15);
+}
+@media (max-width: 700px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+  .navbar-links {
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+}

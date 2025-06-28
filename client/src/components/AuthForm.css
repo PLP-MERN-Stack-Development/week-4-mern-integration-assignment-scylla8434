@@ -1,0 +1,196 @@
+.auth-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.auth-form h2 {
+  margin-bottom: 1rem;
+  color: #235390;
+}
+.auth-form input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.auth-form input:focus {
+  border: 1.5px solid #4f8cff;
+}
+.auth-form button {
+  background: linear-gradient(90deg, #4f8cff 0%, #235390 100%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.auth-form button:disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+}
+.success {
+  color: #388e3c;
+  text-align: center;
+}
+.error {
+  color: #d32f2f;
+  text-align: center;
+}
+.show-password-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #4f8cff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.show-password-btn:hover {
+  color: #235390;
+}
+.animate-success {
+  animation: fadeInScale 0.5s;
+}
+.animate-error {
+  animation: shake 0.4s;
+}
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+/* Dark mode support for auth forms */
+@media (prefers-color-scheme: dark) {
+  .auth-form {
+    background: #1a2233;
+    color: #e6e9f0;
+    box-shadow: 0 2px 16px rgba(35,83,144,0.18);
+  }
+  .auth-form h2 {
+    color: #90b4ff;
+  }
+  .auth-form input {
+    background: #232b3b;
+    color: #e6e9f0;
+    border: 1px solid #2c3950;
+  }
+  .auth-form input:focus {
+    border: 1.5px solid #90b4ff;
+  }
+  .auth-form button {
+    background: linear-gradient(90deg, #235390 0%, #4f8cff 100%);
+    color: #fff;
+  }
+  .show-password-btn {
+    color: #90b4ff;
+  }
+  .show-password-btn:hover {
+    color: #fff;
+  }
+  .success {
+    color: #6ee7b7;
+  }
+  .error {
+    color: #ff6b6b;
+  }
+}
+/* Responsive design for auth forms */
+@media (max-width: 600px) {
+  .auth-form {
+    max-width: 98vw;
+    padding: 1.2rem 0.7rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .auth-form h2 {
+    font-size: 1.3rem;
+  }
+  .auth-form input,
+  .auth-form button {
+    font-size: 1rem;
+    padding: 0.7rem 0.7rem;
+  }
+}
+
+/* Accessibility and focus improvements */
+.auth-form input:focus-visible,
+.auth-form button:focus-visible,
+.show-password-btn:focus-visible {
+  outline: 2px solid #4f8cff;
+  outline-offset: 2px;
+}
+
+/* Subtle input autofill style for Chrome */
+.auth-form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #e6e9f0 inset;
+  -webkit-text-fill-color: #235390;
+  transition: background-color 5000s ease-in-out 0s;
+}
+@media (prefers-color-scheme: dark) {
+  .auth-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #232b3b inset;
+    -webkit-text-fill-color: #90b4ff;
+  }
+}
+
+/* Animated button press effect */
+.auth-form button:active {
+  transform: scale(0.97);
+  filter: brightness(0.97);
+}
+
+/* Subtle fade-in for form */
+.auth-form {
+  animation: fadeInForm 0.5s;
+}
+@keyframes fadeInForm {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Extra polish: subtle shadow on focus, transition for all inputs/buttons */
+.auth-form input,
+.auth-form button {
+  box-shadow: 0 1px 4px rgba(79,140,255,0.04);
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+}
+.auth-form input:focus,
+.auth-form button:focus {
+  box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+}
+
+/* Success and error fade-out after 2s */
+.success, .error {
+  animation: fadeOutMsg 2s 2s forwards;
+}
+@keyframes fadeOutMsg {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Hide scrollbars for a cleaner look */
+.auth-form input::-webkit-scrollbar,
+.auth-form textarea::-webkit-scrollbar {
+  display: none;
+}
