@@ -141,18 +141,3 @@ See [client/screenshots.md](client/screenshots.md) for light/dark mode screensho
 - Category badges, post cards, search
 - Pagination-ready, accessible, and mobile-friendly
 
-## How to Add Screenshots
-1. Run the app in both light and dark mode.
-2. Take screenshots of the main pages (home, post view, forms, etc.).
-3. Save them in the `client/screenshots/` folder as shown in `screenshots.md`.
-4. Update the documentation as needed.
-
----
-
-## Submission Checklist
-- [x] All features work end-to-end
-- [x] UI/UX is modern, responsive, and polished
-- [x] Dark mode toggle works
-- [x] README and screenshots are updated
-- [x] .env.example files provided
-- [x] Ready for grading or showcase
